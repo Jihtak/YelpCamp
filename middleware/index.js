@@ -12,7 +12,7 @@ middlewareObj.checkCampgroundOwner = function(req, res, next) {
                 res.redirect("back");
             } else {
                 //does user own the cmpgrnd
-                if (foundCampground.author.id.equals(req.user._id)) { //because cmp.auth.id is mongoose object and req.user._id is a string and they are not the same
+                if (foundCampground.author.id.equals(req.user._id) || req.user.isAdmin) { //because cmp.auth.id is mongoose object and req.user._id is a string and they are not the same
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that!");
@@ -35,7 +35,7 @@ middlewareObj.checkCommentOwner = function(req, res, next) {
                 res.redirect("back");
             } else {
                 //does user own the comment
-                if (foundComment.author.id.equals(req.user._id)) {
+                if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) {
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that!");
