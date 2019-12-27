@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+require("dotenv").config();
+var tajna = process.env.TAJNA;
 
 
 //ROOT route=============================
@@ -22,7 +24,7 @@ router.get("/register", function(req, res) {
 //signup logic
 router.post("/register", function(req, res) {
     var newUser = new User({ username: req.body.username });
-    if (req.body.adminCode === "MojaTajna555") {
+    if (req.body.adminCode === tajna) {
         newUser.isAdmin = true;
     }
     User.register(newUser, req.body.password, function(err, user) {
