@@ -23,7 +23,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
 //mongoose.connect("mongodb://localhost:27017/yelp_camp_v11");
-mongoose.connect("mongodb+srv://jihtak:" + mdbPassword + "@clustermm-znab2.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("YOUR LINK");
 //mongoose.connect("mongodb+srv://myusername:" + mdbPassword + "@clustermm-znab2.mongodb.net/test?retryWrites=true&w=majority");  
 //Add your link in this format to the line above instead of YOUR LINK!!!
 app.set("view engine", "ejs");
